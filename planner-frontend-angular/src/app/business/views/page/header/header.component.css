@@ -1,0 +1,12 @@
+.header-icon {
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.settings button {
+    margin-right: 0;
+}
+
+.action-bar {
+    height: 40px;
+}

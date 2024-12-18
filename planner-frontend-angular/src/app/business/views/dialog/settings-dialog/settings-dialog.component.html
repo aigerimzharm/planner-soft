@@ -1,0 +1,63 @@
+<!--диалоговое окно настроек приложения-->
+
+<mat-dialog-content>
+
+    <mat-tab-group animationDuration="0ms">
+
+        <!--        вкладка настройки приоритетов-->
+
+        <mat-tab label="{{'SETTINGS.PRIORITY' | translate}}">
+
+
+            <!--  список приоритетов с цветами-->
+            <app-priorities
+                    [priorities]="priorities"
+                    [user]="user"
+
+                    (addPriorityEvent)="addPriority($event)"
+                    (deletePriorityEvent)="deletePriority($event)"
+                    (updatePriorityEvent)="updatePriority($event)"
+            >
+
+            </app-priorities>
+
+
+        </mat-tab>
+
+        <!--        вкладка для переключения языков-->
+        <mat-tab label="{{'SETTINGS.LANG' | translate}}" [ngClass]="{'tab-lang': true}">
+
+
+            <mat-radio-group
+
+                    class="radio-group"
+
+                    [(ngModel)]="lang"
+                    (ngModelChange)="langChanged()"
+            >
+                <mat-radio-button value="{{en}}">
+                    {{'LANG.EN' | translate}}
+                </mat-radio-button>
+
+
+                <mat-radio-button value="{{ru}}">
+                    {{'LANG.RU' | translate}}
+                </mat-radio-button>
+
+
+            </mat-radio-group>
+
+        </mat-tab>
+    </mat-tab-group>
+
+
+</mat-dialog-content>
+
+<!--  кнопки возможных действий-->
+<mat-dialog-actions>
+
+    <button mat-raised-button color="primary" (click)="close()">{{'COMMON.CLOSE' | translate}}</button>
+
+
+</mat-dialog-actions>
+
